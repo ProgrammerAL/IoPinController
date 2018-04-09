@@ -27,7 +27,7 @@ namespace IoPinController
             GC.SuppressFinalize(this);
             Task.Run(OnDisposeAsync);
         }
-
+        
         protected abstract Task OnDisposeAsync();
 
         protected abstract void Initialize();
