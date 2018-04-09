@@ -7,7 +7,7 @@ namespace IoPinController
 {
     public abstract class Pin : IDisposable
     {
-        public Pin(int number, IAsyncFileUtil fileUtils, IIoPinControllerLogger logger)
+        protected Pin(int number, IAsyncFileUtil fileUtils, IIoPinControllerLogger logger)
         {
             Number = number;
             NumberText = number.ToString();

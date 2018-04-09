@@ -11,7 +11,7 @@ namespace IoPinController
     {
         private bool _currentValue;
 
-        public InputPin(int number, IAsyncFileUtil fileUtils, IIoPinControllerLogger logger) : base(number, fileUtils, logger)
+        protected InputPin(int number, IAsyncFileUtil fileUtils, IIoPinControllerLogger logger) : base(number, fileUtils, logger)
         {
         }
 

@@ -46,7 +46,6 @@ namespace IoPinController.FileUtils
 
         public void AppendText(string filePath, string content)
         {
-            //using (var outputStream = File.OpenWrite(filePath))
             using (var outputStream = File.Open(filePath, FileMode.Append, FileAccess.Write, FileShare.Write))
             {
                 var stringBytes = FileEncoding.GetBytes(content);
@@ -54,9 +53,9 @@ namespace IoPinController.FileUtils
             }
         }
 
-        public bool DirectoryExists(string directoryaPath)
+        public bool DirectoryExists(string directoryPath)
         {
-            return Directory.Exists(directoryaPath);
+            return Directory.Exists(directoryPath);
         }
     }
 }

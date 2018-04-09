@@ -11,6 +11,8 @@ namespace IoPinController.PinControllers.Linux
     public class LinuxInputPin : InputPin
     {
         private const string InputDirectionValue = "in";
+        private const string ExportFilePath = "/sys/class/gpio/unexport";
+
 
         private readonly string _inputValueFilePath;
 
@@ -62,8 +64,7 @@ namespace IoPinController.PinControllers.Linux
 
         private async Task UnexportPinAsync()
         {
-            var exportFilePath = "/sys/class/gpio/unexport";
-            await FileUtils.AppendTextAsync(exportFilePath, NumberText);
+            await FileUtils.AppendTextAsync(ExportFilePath, NumberText);
         }
     }
 }

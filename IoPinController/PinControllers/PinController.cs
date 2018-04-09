@@ -16,7 +16,7 @@ namespace IoPinController.PinControllers
         private readonly Func<int, TOutputPin> _createOutputPinFunction;
 
         private readonly TaskScheduler _taskScheduler;
-        private Task<Task> _continuouslyCheckingInputPinsTask;
+        private readonly Task<Task> _continuouslyCheckingInputPinsTask;
 
         protected PinController(Func<int, TInputPin> cerateInputPinFunction, Func<int, TOutputPin> createOutputPinFunction, ITaskSchedulerUtility taskSchedulerUtility)
         {

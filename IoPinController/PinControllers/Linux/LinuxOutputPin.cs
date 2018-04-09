@@ -13,8 +13,10 @@ namespace IoPinController.PinControllers.Linux
         private const string OutputDirectionValue = "out";
         private const string OutputLowValue = "0";
         private const string OutputHighValue = "1";
+        private const string UnexportFilePath = "/sys/class/gpio/unexport";
 
         private readonly string _outputModeFilePath;
+
         public LinuxOutputPin(int number, IAsyncFileUtil fileUtils, IIoPinControllerLogger logger) : base(number, fileUtils, logger)
         {
             _outputModeFilePath = $"/sys/class/gpio/gpio{this.NumberText}/value";
@@ -51,8 +53,7 @@ namespace IoPinController.PinControllers.Linux
 
         private async Task UnexportPinAsync()
         {
-            var exportFilePath = "/sys/class/gpio/unexport";
-            await FileUtils.AppendTextAsync(exportFilePath, NumberText);
+            await FileUtils.AppendTextAsync(UnexportFilePath, NumberText);
         }
     }
 }
