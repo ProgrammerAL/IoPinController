@@ -10,6 +10,12 @@ namespace IoPinController.PinControllers.Linux
 {
     public class LinuxPinController : PinController<LinuxInputPin, LinuxOutputPin>
     {
+        public const string UnexportFilePath = "/sys/class/gpio/unexport";
+        public const string ExportFilePath = "/sys/class/gpio/export";
+
+        public const string OutputDirectionValue = "out";
+        public const string InputDirectionValue = "in";
+
         public LinuxPinController(IAsyncFileUtil fileUtils, IIoPinControllerLogger logger, ITaskSchedulerUtility taskSchedulerUtility)
             : base((pinNumber) => new LinuxInputPin(pinNumber, fileUtils, logger),
                   (pinNumber) => new LinuxOutputPin(pinNumber, fileUtils, logger),

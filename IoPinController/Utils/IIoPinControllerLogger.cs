@@ -9,7 +9,7 @@ namespace IoPinController.Utils
         bool IsLoggingErrors { get; set; }
         bool IsLoggingInfo { get; set; }
 
-        void LogError(string message);
-        void LogInfo(string message);
+        void LogError(Func<string> messageFunc);
+        void LogInfo(Func<string> messageFunc);
     }
 }

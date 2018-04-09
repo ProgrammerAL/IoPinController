@@ -9,19 +9,19 @@ namespace IoPinController.Utils
         public bool IsLoggingErrors { get; set; }
         public bool IsLoggingInfo { get; set; }
 
-        public void LogError(string message)
+        public void LogError(Func<string> messageFunc)
         {
             if (IsLoggingErrors)
             {
-                Console.WriteLine("Error: " + message);
+                Console.WriteLine("Error: " + messageFunc());
             }
         }
 
-        public void LogInfo(string message)
+        public void LogInfo(Func<string> messageFunc)
         {
             if (IsLoggingInfo)
             {
-                Console.WriteLine("Info: " + message);
+                Console.WriteLine("Info: " + messageFunc());
             }
         }
     }
