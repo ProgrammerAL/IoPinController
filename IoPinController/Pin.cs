@@ -15,6 +15,7 @@ namespace IoPinController
             NumberText = number.ToString();
             FileUtils = fileUtils;
             Logger = logger;
+            Initialize();
         }
 
         public int Number { get; }
