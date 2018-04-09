@@ -7,13 +7,14 @@ namespace IoPinController
 {
     public abstract class Pin : IDisposable
     {
+        private bool _isInitialized;
+
         protected Pin(int number, IAsyncFileUtil fileUtils, IIoPinControllerLogger logger)
         {
             Number = number;
             NumberText = number.ToString();
             FileUtils = fileUtils;
             Logger = logger;
-            Initialize();
         }
 
         public int Number { get; }
@@ -36,7 +37,17 @@ namespace IoPinController
             }
         }
 
+        protected void Initialize()
+        {
+            if (!_isInitialized)
+            {
+                _isInitialized = true;
+                OnInitialize();
+            }
+        }
+
+        protected abstract void OnInitialize();
+
         protected abstract Task OnDisposeAsync();
-        protected abstract void Initialize();
     }
 }

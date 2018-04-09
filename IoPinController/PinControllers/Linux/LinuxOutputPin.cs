@@ -22,7 +22,7 @@ namespace IoPinController.PinControllers.Linux
             _outputModeFilePath = $"/sys/class/gpio/gpio{this.NumberText}/value";
         }
 
-        protected override void Initialize()
+        protected override void OnInitialize()
         {
             //First check if the pin has already been exported
             if (FileUtils.DirectoryExists($"/sys/class/gpio/gpio{this.NumberText}"))
