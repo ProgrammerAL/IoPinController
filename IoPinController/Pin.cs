@@ -25,11 +25,18 @@ namespace IoPinController
         public void Dispose()
         {
             GC.SuppressFinalize(this);
-            Task.Run(OnDisposeAsync);
+            Dispose(true);
         }
-        
-        protected abstract Task OnDisposeAsync();
 
+        protected virtual void Dispose(bool isDisposing)
+        {
+            if (isDisposing)
+            {
+                Task.Run(OnDisposeAsync);
+            }
+        }
+
+        protected abstract Task OnDisposeAsync();
         protected abstract void Initialize();
     }
 }

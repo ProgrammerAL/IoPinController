@@ -41,6 +41,12 @@ namespace IoPinController.PinControllers
 
         public void Dispose()
         {
+            GC.SuppressFinalize(this);
+            Dispose(true);
+        }
+
+        protected virtual void Dispose(bool isDisposing)
+        {
             StopContinuouslyCheckingInputPins();
             _continuouslyCheckingInputPinsTask.Dispose();
 

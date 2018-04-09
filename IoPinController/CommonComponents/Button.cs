@@ -34,9 +34,15 @@ namespace IoPinController.CommonComponents
 
         public void Dispose()
         {
-            InputPin.InputValueChanged -= InputPin_InputValueChanged;
+            GC.SuppressFinalize(this);
+            Dispose(true);
         }
 
+        protected virtual void Dispose(bool isDisposing)
+        {
+            InputPin.InputValueChanged -= InputPin_InputValueChanged;
+        }
+        
         private void InputPin_InputValueChanged(InputPin sender, bool value)
         {
             UpdateButtonState();
