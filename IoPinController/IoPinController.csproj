@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>ProgrammerAl</Authors>
+    <Company>ProgrammerAl</Company>
+    <Copyright></Copyright>
+    <PackageLicenseUrl>https://github.com/ProgrammerAl/IoPinController/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ProgrammerAl/IoPinController</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ProgrammerAl/IoPinController</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
